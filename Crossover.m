@@ -14,19 +14,19 @@
 function [y1, y2]=Crossover(x1,x2,gamma,VarMin,VarMax,VarMin2,VarMax2)
 
     alpha=unifrnd(-gamma,1+gamma,size(x1));
-    
-    y1=alpha.*x1+(1-alpha).*x2;
-    y2=alpha.*x2+(1-alpha).*x1;
- 
-    
-    y1(1)=max(y1(1),VarMin);
-    y1(2)=max(y1(2),VarMin2);
-    y1(1)=min(y1(1),VarMax);
-    y2(1)=min(y1(2),VarMax2);
-    
-    y2(1)=max(y2(1),VarMin);
-    y2(2)=max(y2(2),VarMin2);
-    y2(1)=min(y2(1),VarMax);
-    y2(2)=min(y2(2),VarMax2);
+    while (1==1)
+        y1=alpha.*x1+(1-alpha).*x2;
+        y2=alpha.*x2+(1-alpha).*x1;
+        y1(1:5)=min(max(y1(1:5),VarMin),VarMax)
+        y2(1:5)=min(max(y1(1:5),VarMin),VarMax)
+        
+        y1(6)=min(max(y1(6),VarMin2),VarMax2)
+        y2(6)=min(max(y1(6),VarMin2),VarMax2)
+        % 检查交叉后的值是否满足条件
+        if all(sort(y1(1:5)==y1(1:5))) && all(sort(y2(1:5)==y2(1:5)))
+            return 
+        end
+        % 检查交叉后的值是否满足条件
+    end
 
 end

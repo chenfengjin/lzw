@@ -22,12 +22,15 @@ function y=Mutate(x,mu,VarMin,VarMax,VarMin2,VarMax2)
     sigma(1)=0.1*(VarMax-VarMin);
     sigma(2)=0.1*(VarMax2-VarMin2);
     
-    y=x;
-    y(j)=x(j)+sigma(j)*randn(size(j));
-    
-    y(1)=max(y(1),VarMin);
-    y(2)=max(y(2),VarMin2);
-    y(1)=min(y(1),VarMax);
-    y(2)=min(y(2),VarMax2);
+    while(1)
+        y=x;
+        y(j)=x(j)+sigma(j)*randn(size(j));
+        
+        y(1:5)=min(max(y(1:5),VarMin),VarMax)        
+        y(6)=min(max(y(6),VarMin2),VarMax2)
+        if all(sort(y(1:5)==y(1:5)))
+            return 
+        end
+    end
 
 end

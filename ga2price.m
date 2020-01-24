@@ -91,10 +91,17 @@ BestCost=zeros(MaxIt,1);
 BestPrice=zeros(MaxIt,nVar);
 % Store Cost
 WorstCost=pop(end).Cost;
+it=1
 
+% 如果这个文件存在，就加载文件，会覆盖所有的结果
 %% Main Loop
+if (exist("mat.mat","file")) ==2
+   load('mat.mat')
+   fprintf('find existing result,begin at %d iteration',it)
+   pause 5
+end
 
-for it=1:MaxIt
+while(it<MaxIt)
     
     % Calculate Selection Probabilities
     if UseRouletteWheelSelection
@@ -124,7 +131,7 @@ for it=1:MaxIt
         p1=pop(i1);
         p2=pop(i2);
         
-        % Apply Crossover
+        % Apply Crossover'
         [popc(k,1).Position, popc(k,2).Position]=Crossover(p1.Position,p2.Position,gamma,VarMin,VarMax,VarMin2,VarMax2);
         
         % Evaluate Offsprings
@@ -179,6 +186,7 @@ for it=1:MaxIt
     % Show Iteration Information
     disp(['Iteration ' num2str(it) ': Best Cost = ' num2str(BestCost(it))]);
     plot(-BestCost,'LineWidth',2);
+    save('mat.mat')
 end
 
 %% Results

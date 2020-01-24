@@ -14,7 +14,7 @@ mpc=case39psh;%matpower通用函数，将数据从文件或者结构体中导入到数据矩阵中
 
 nb=size(bus,1);%电网节点个数
 ng=size(gen,1);%发电机组个数
-nbr=length(branch(:,1));%线路的个数
+nbr=length(branch(:,1));%线路的个数q
 
 %提取负荷信息
 % Pload0 = bus(:,3);%提取节点负荷,主要用各节点的负荷比

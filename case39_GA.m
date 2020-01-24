@@ -94,7 +94,17 @@ WorstCost=pop(end).Cost;
 
 %% Main Loop
 
-for it=1:MaxIt
+it=1
+
+% 如果这个文件存在，就加载文件，会覆盖所有的结果
+%% Main Loop
+if (exist("mat.mat","file")) ==2
+   load('mat.mat')
+   fprintf('find existing result,begin at %d iteration',it)
+   pause(5)
+end
+
+while(it<MaxIt)
     
     % Calculate Selection Probabilities
     if UseRouletteWheelSelection
@@ -179,6 +189,8 @@ for it=1:MaxIt
     % Show Iteration Information
     disp(['Iteration ' num2str(it) ': Best Cost = ' num2str(BestCost(it))]);
     plot(-BestCost,'LineWidth',2);
+    save('mat.mat')
+
 end
 
 %% Results
