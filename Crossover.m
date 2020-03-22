@@ -18,9 +18,17 @@ function [y1, y2]=Crossover(x1,x2,gamma,VarMin,VarMax,VarMin2,VarMax2)
     y1(1:5)=min(max(y1(1:5),VarMin),VarMax);
     y2(1:5)=min(max(y2(1:5),VarMin),VarMax);
     
-    y1(6)=min(max(y1(6),VarMin2),VarMax2);
-    y2(6)=min(max(y2(6),VarMin2),VarMax2);
+    y1(16)=min(max(y1(16),VarMin2),VarMax2);
+    y2(16)=min(max(y2(16),VarMin2),VarMax2);
+    y1(17)=min(max(y1(17),VarMin2),VarMax2);
+    y2(17)=min(max(y2(17),VarMin2),VarMax2);
+    y1(18)=min(max(y1(18),VarMin2),VarMax2);
+    y2(18)=min(max(y2(18),VarMin2),VarMax2);
 
     y1(1:5)=sort(y1(1:5))
     y2(1:5)=sort(y2(1:5))
+    y1(6:10)=sort(y1(6:10))
+    y2(6:10)=sort(y2(6:10))
+    y1(11:15)=sort(y1(11:15))
+    y2(11:15)=sort(y2(12:15))
 end

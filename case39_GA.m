@@ -20,7 +20,7 @@ CostFunction=@(x) -1*case39_YC(x);     % Cost Function
 
 nVar=6 * 3;             % Number of Decision Variables
 
-VarSize=[1 nVar];   % Decision Variables Matrix Size 
+VarSize=[1 nVar];   % Decision Variables Matrix Size 这个变量没用了
 
 VarMin=0;         % Lower Bound of Variables
 VarMax= 120;         % Upper Bound of Variables
@@ -68,8 +68,8 @@ pop=repmat(empty_individual,nPop,1);
 for i=1:nPop
     
     % Initialize Position
-    pop(i).Position(1:5)=sort(unifrnd(VarMin,VarMax,1,5)); %均匀分布
-    pop(i).Position(6)=unifrnd(VarMin2,VarMax2,1);
+    pop(i).Position(1:5)=sort(unifrnd(VarMin,VarMax,1,15)); %均匀分布
+    pop(i).Position(6)=unifrnd(VarMin2,VarMax2,3);
     % Evaluation
 %     pop(i).Cost=1;
 %     pop(1).Position(1)=16.1114;
@@ -96,7 +96,6 @@ WorstCost=pop(end).Cost;
 
 it=1;
 
-% 濡傛灉杩欎釜鏂囦欢瀛樺湪锛屽氨鍔犺浇鏂囦欢锛屼細瑕嗙洊鎵?鏈夌殑缁撴灉
 %% Main Loop
 if (exist("mat.mat","file")) ==2
    load('mat.mat')

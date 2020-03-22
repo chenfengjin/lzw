@@ -26,9 +26,9 @@ function y=Mutate(x,mu,VarMin,VarMax,VarMin2,VarMax2)
         y=x;
         y(j)=x(j)+sigma(j)*randn(size(j));  %变异程度不一样 ，递增
         
-        y(1:5)=min(max(y(1:5),VarMin),VarMax)        
-        y(6)=min(max(y(6),VarMin2),VarMax2)
-        if all(sort(y(1:5)==y(1:5)))
+        y(1:15)=min(max(y(1:15),VarMin),VarMax)        
+        y(6)=min(max(y(16:18),VarMin2),VarMax2)
+        if all(sort(y(1:15)==y(1:15)))
             return 
         end
     end
