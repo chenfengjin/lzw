@@ -15,8 +15,8 @@ function [y1, y2]=Crossover(x1,x2,gamma,VarMin,VarMax,VarMin2,VarMax2)
     alpha=unifrnd(-gamma,1+gamma,size(x1));
     y1=alpha.*x1+(1-alpha).*x2;
     y2=alpha.*x2+(1-alpha).*x1;
-    y1(1:5)=min(max(y1(1:5),VarMin),VarMax);
-    y2(1:5)=min(max(y2(1:5),VarMin),VarMax);
+    y1(1:15)=min(max(y1(1:15),VarMin),VarMax);
+    y2(1:15)=min(max(y2(1:15),VarMin),VarMax);
     
     y1(16)=min(max(y1(16),VarMin2),VarMax2);
     y2(16)=min(max(y2(16),VarMin2),VarMax2);
