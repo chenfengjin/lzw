@@ -31,7 +31,7 @@ VarMax2=22;         % Upper Bound of Variables
 
 MaxIt=100;     % Maximum Number of Iterations
 
-nPop=1;       % Population Size
+nPop=50;       % Population Size
 
 pc=0.7;                 % Crossover Percentage
 nc=2*round(pc*nPop/2);  % Number of Offsprings (also Parnets)
@@ -68,8 +68,10 @@ pop=repmat(empty_individual,nPop,1);
 for i=1:nPop
     
     % Initialize Position
-    pop(i).Position(1:5)=sort(unifrnd(VarMin,VarMax,1,15)); %均匀分布
-    pop(i).Position(6)=unifrnd(VarMin2,VarMax2,3);
+    pop(i).Position(1:5)=sort(unifrnd(VarMin,VarMax,1,5)); %均匀分布
+    pop(i).Position(6:10)=sort(unifrnd(VarMin,VarMax,1,5)); %均匀分布
+    pop(i).Position(11:15)=sort(unifrnd(VarMin,VarMax,1,5)); %均匀分布
+    pop(i).Position(16:18)=unifrnd(VarMin2,VarMax2,1,3);
     % Evaluation
 %     pop(i).Cost=1;
 %     pop(1).Position(1)=16.1114;
@@ -97,7 +99,7 @@ WorstCost=pop(end).Cost;
 it=1;
 
 %% Main Loop
-if (exist("mat.mat","file")) ==2
+if (exist('mat.mat','file')) ==2
    load('mat.mat')
    fprintf('find existing result,begin at %d iteration',it)
    pause(5)

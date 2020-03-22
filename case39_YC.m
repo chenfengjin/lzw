@@ -1,8 +1,12 @@
 function Income_PSH=case39_YC(quoted_prices)
         quoted_prices=roundn(quoted_prices,-2);
-        disp(quoted_prices)
+        disp(quoted_prices([1:5,16]))
+        disp(quoted_prices([6:10,17]))
+        disp(quoted_prices([11:15,18]))
         quoted_price_energy=quoted_prices(1:5);
         quoted_price_frequency=quoted_prices(6);
+        % Income_PSH = rand();
+        % return
 
 %% 电力系统安全机组组合
 %% 设置不同cases

@@ -30,5 +30,5 @@ function [y1, y2]=Crossover(x1,x2,gamma,VarMin,VarMax,VarMin2,VarMax2)
     y1(6:10)=sort(y1(6:10))
     y2(6:10)=sort(y2(6:10))
     y1(11:15)=sort(y1(11:15))
-    y2(11:15)=sort(y2(12:15))
+    y2(11:15)=sort(y2(11:15))
 end

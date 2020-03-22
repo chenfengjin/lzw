@@ -24,11 +24,11 @@ function y=Mutate(x,mu,VarMin,VarMax,VarMin2,VarMax2)
     
     while(1)
         y=x;
-        y(j)=x(j)+sigma(j)*randn(size(j));  %变异程度不一样 ，递增
+        y(j)=x(j)+sigma(j)'.*randn(size(j))';  %变异程度不一样 ，递增
         
         y(1:15)=min(max(y(1:15),VarMin),VarMax)        
-        y(6)=min(max(y(16:18),VarMin2),VarMax2)
-        if all(sort(y(1:15)==y(1:15)))
+        y(16:18)=min(max(y(16:18),VarMin2),VarMax2)
+        if all(sort(y(1:5)==y(1:5))) && all(sort(y(6:10)==y(6:10))) &&all(sort(y(11:15)==y(11:15)))
             return 
         end
     end
